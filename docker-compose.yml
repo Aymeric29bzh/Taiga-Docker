@@ -1,0 +1,43 @@
+# to enable SSL. See the example example-nginx-ssl.conf file
+      # for an alternative way to enable SSL.
+      # TAIGA_SSL: 'True'
+
+      # Enable SSL externally, preferred method
+      # TAIGA_SSL_BY_REVERSE_PROXY: 'True'
+    volumes:
+      # Media and uploads directory. Required (or you will lose all uploads)
+      - ./media:/usr/src/taiga-back/media
+
+      # Taiga configuration directory. Makes it easier to change configuration.
+      - ./taiga-conf:/taiga
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: taigadb
+      POSTGRES_USER: taiga
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432
+    volumes:
+      # Postgres data directory. This ensures the database is not lost.
+      - ./pgdata:/var/lib/postgresql/data
+
+
+  # To enable taiga-events, uncomment the following lines:
+  # rabbit:
+  #   image: rabbitmq:3
+  #   hostname: rabbit
+  #
+  # redis:
+  #   image: redis:3
+  #
+  # celery:
+  #   image: celery
+  #   links:
+  #     - rabbit
+  #
+  # events:
+  #   image: benhutchins/taiga-events
+  #   links:
+  #     - rabbit
