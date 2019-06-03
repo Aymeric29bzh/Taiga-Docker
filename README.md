@@ -1,6 +1,9 @@
 # Taiga-Docker
 Taiga on Docker
 
+to download this git :
+
+git clone https://github.com/Aymeric29bzh/Taiga-Docker.git 
 
 First Step :
 
