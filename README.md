@@ -5,18 +5,15 @@ to download this git :
 
 git clone https://github.com/Aymeric29bzh/Taiga-Docker.git 
 
+WARNING : 
+TO CHANGE PORT GO INTO DOCKER-COMPOSE.YML and change...
+If you want you can change Ports But if you change the port you have to add it to the IP address of the API 
+
 First Step :
-
-Go into docker-compose.yml 
-Remplace with your IP into API_NAME.
-
-If you want you can change Ports
-
-Second Step :
 Go into taiga-conf -> conf.json
 Change "api" with your IP.
 
-Third Step :
+SECOND Step :
 
 Make docker-compose up
 
